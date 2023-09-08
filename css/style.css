@@ -1,0 +1,112 @@
+* {
+    font-family: 'Kanit', sans-serif;
+    font-family: 'Noto Sans Thai', sans-serif;
+    font-family: 'Prompt', sans-serif;
+}
+
+.page {
+    min-height: 100vh;
+    background-color: #F8F8F8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+button {
+    border-radius: 30px;
+    border: 2px solid black;
+}
+
+#qa {
+    background-color: #F18C73;
+    color: white;
+    margin-left: auto;
+    height: 2.5em;
+    width: 5em;
+}
+
+#ward {
+    color: #226699;
+}
+
+#nong {
+    color: #F05A22;
+}
+
+#gluay {
+    color: #F4BC33;
+
+}
+
+img {
+    max-width: 300px;
+}
+
+.info {
+    background-color: #E5D1BD;
+    color: #5C5D5D;
+    height: 2.5em;
+    width: auto;
+    padding: 0 1em;
+    font-size: 0.8em;
+}
+
+.return {
+    background-color: #F18C73;
+    color: white;
+    height: 3em;
+    width: 10em;
+}
+
+#add {
+    background-color: #F4BC33;
+    color: white;
+    height: 2.5em;
+    width: 100%;
+}
+
+#send {
+    background-color: #226699;
+    color: white;
+    height: 2.5em;
+    width: 100%;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 2em 3em 2em 0em;
+}
+
+p {
+    font-size: 0.7em;
+}
+
+.page-qa .page-done img {
+    width: 200px;
+}
+.page-done .text{
+    margin-top: 10em;
+}
+
+
+.text img {
+    width: 60%;
+}
+input{
+    max-width: 70vw;
+}
+.hidden{
+    display: none;
+}
+.checkmark {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    fill: green;
+}   
+#done{
+    color: #5C913B;
+}
