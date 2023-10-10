@@ -4,7 +4,7 @@
     font-family: 'Prompt', sans-serif;
 }
 
-.page {
+.page-start {
     min-height: 100vh;
     background-color: #F8F8F8;
     display: flex;
@@ -26,87 +26,191 @@ button {
     width: 5em;
 }
 
-#ward {
-    color: #226699;
-}
-
-#nong {
-    color: #F05A22;
-}
-
-#gluay {
-    color: #F4BC33;
-
-}
-
-img {
+.page-start img {
+    width: 60%;
     max-width: 300px;
 }
 
-.info {
-    background-color: #E5D1BD;
-    color: #5C5D5D;
-    height: 2.5em;
-    width: auto;
-    padding: 0 1em;
+.page-start #send {
+    background-color: #226699;
+    color: white;
+    height: 3em;
+    width: 70%;
+}
+
+.page-start .flex-row {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 2em 2em 2em 2em;
+    padding-left: 2em;
+    padding-right: 2em;
+}
+
+.page-start p {
     font-size: 0.8em;
 }
 
-.return {
-    background-color: #F18C73;
-    color: white;
-    height: 3em;
-    width: 10em;
+.page-form{
+    min-height: 100vh;
+    background-color: #F8F8F8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.page-form .img-title{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#add {
-    background-color: #F4BC33;
-    color: white;
-    height: 2.5em;
-    width: 100%;
-}
-
-#send {
-    background-color: #226699;
-    color: white;
-    height: 2.5em;
-    width: 100%;
-}
-
-.flex-row {
+.page-form .flex-row {
     display: flex;
     justify-content: flex-end;
     width: 100%;
-    margin: 2em 3em 2em 0em;
+    margin: 2em 2em 2em 2em;
+    padding-left: 2em;
+    padding-right: 2em;
 }
-
-p {
+.page-form img {
+    width: 30%;
+    max-width: 500px;
+}
+.page-form .text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.page-form h4{
+    font-size: 0.8em;
+    font-weight: bold;
+}
+.page-form .word {
+    padding: 0.8em;
+    padding-bottom: 0.4em;
+    margin: 0em 2em;
+    border-radius: 30px;
+    background-color: #F6EBE3;
+}
+.page-form .toggle-word span{
+    padding: 6px;
     font-size: 0.7em;
 }
+.page-form #choose-word{
+    font-size: 0.7em;
+    font-weight: bold;
+}
+.page-form textarea{
+    width: 80%;
+    border: solid black 2px;
+    border-radius: 20px;
+    height: 14em;
+    padding: 2em;
+    font-size: 0.8em;
+    font-weight: 100;
+}
+.page-form .edit-button {
+    display: none;
+    position: absolute;
+    bottom: 10px;
+    right: 3em;
+    cursor: pointer;
+    border: none;
+    font-size: 20px;
+  }
+  .textarea-container {
+    position: relative;
+  }
+.page-form #next {
+    background-color: gray;
+    color: white;
+    height: 3em;
+    width: 70%;
+}
+.page-form .input-form{
+    width: 80%;
+    padding: 0.4em 1em;
+    border: solid black 2px;
+    border-radius: 20px;
+}
+.page-form #after-next{
+    display: none;
+}
+.page-form #after-next p{
+    font-size: 0.7em;
+    color: green;
+}
+.page-form #submit{
+    background-color: #226699;
+    color: white;
+    height: 3em;
+    width: 70%;
+}
 
+#submitted{
+ justify-content: flex-end;
+}
+#readDiary{
+    background-color:#F5B926 ;
+    color: white;
+    height: 3em;
+    width: 70%;
+}
+#diaryImage{
+    height: 45px;
+    width: auto;
+}
+
+.page-qa{
+    display: flex;
+    flex-direction: column;
+}
+.page-qa img {
+    width: 30%;
+    max-width: 500px;
+}
+.page-qa .text{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.page-qa .flex-col{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.page-qa button{
+    background-color: #E5D1BD;
+}
+.page-qa p{
+    font-size: 0.8em;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 .page-qa .page-done img {
     width: 200px;
 }
+.page-qa #return{
+    height: 3em;
+    width: 13em;
+    margin: 0;
+    color: white;
+    background-color: #F18C73;
+}
+
 .page-done .text{
     margin-top: 10em;
 }
+.page-result .text{
+    margin-top: 3em;
+}
 
 
-.text img {
-    width: 60%;
-}
-input{
-    max-width: 70vw;
-}
+
 .hidden{
     display: none;
 }
-.checkmark {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    fill: green;
-}   
-#done{
-    color: #5C913B;
-}
+

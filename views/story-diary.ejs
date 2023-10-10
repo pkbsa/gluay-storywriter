@@ -1,0 +1,130 @@
+<html lang="th">
+  <head>
+    <title>WARD NONGGLUAY</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="ward gluaymunchkin" />
+    <meta name="keywords" content="Gluay, Contest, Drawing" />
+    <meta name="author" content="Gluay" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit&family=Noto+Sans+Thai:wght@300&family=Prompt:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./diary.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Itim&family=Prompt&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div class="flex-row">
+      <a href="./storygluay">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="40"
+          height="40"
+          fill="currentColor"
+          class="bi bi-house-door-fill"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z"
+          />
+        </svg>
+      </a>
+      <a href="./storygluay-questions">
+        <button id="qa">Q&A</button>
+      </a>
+    </div>
+    <div class="page-diary">
+      <div class="book">
+        <div id="pages" class="pages">
+          <div class="page" id="cover">
+            <div class="text mt-3">
+              <img src="./assets/diary1.png" />
+              <img class="mt-2" src="./assets/gluay_logo.png" alt="gluay" />
+            </div>
+          </div>
+          <div class="page"></div>
+          <div class="page">
+            <div class="top">
+              <p class="title mt-2">คำนำ</p>
+              <p class="description mt-3">
+                ไดอารี่เล่มนี้เป็นการรวบรวมเรื่องราวของน้องกล้วย
+                ที่ร่วมสร้างโดยพี่ๆนักเขียนผู้น่ารักทุกคน
+                นักเขียนกล้วยขอขอบคุณทุกคนที่มาร่วมสร้างความทรงจำน่ารักๆนี้
+              </p>
+              <p class="author mt-3 text-right">
+                <span></span
+                ><span
+                  >ขอบคุณฮะ<br />
+                  -นักเขียนกล้วย-</span
+                >
+              </p>
+            </div>
+          </div>
+          <% let counter=1; %> <% for (var d of drawing){ %>
+          <div class="page">
+            <div class="top">
+              <p class="title mt-2"><%=d.title%></p>
+              <p class="description mt-3"><%=d.story%></p>
+            </div>
+            <p class="author text-right">
+              <span> <%= counter %> </span><span> <%=d.author%> </span>
+            </p>
+          </div>
+          <% counter++; %> <% } %>
+          <div class="page" id="backcover"></div>
+        </div>
+      </div>
+    </div>
+    <script>
+      var pages = document.getElementsByClassName("page");
+      for (var i = 0; i < pages.length; i++) {
+        var page = pages[i];
+        if (i % 2 === 0) {
+          page.style.zIndex = pages.length - i;
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        for (var i = 0; i < pages.length; i++) {
+          //Or var page = pages[i];
+          pages[i].pageNum = i + 1;
+          pages[i].onclick = function () {
+            if (this.pageNum % 2 === 0) {
+              this.classList.remove("flipped");
+              this.previousElementSibling.classList.remove("flipped");
+            } else {
+              this.classList.add("flipped");
+              this.nextElementSibling.classList.add("flipped");
+            }
+          };
+        }
+        if (pages.length % 2 !== 0) {
+          var newDiv = document.createElement("div");
+          newDiv.className = "page";
+
+          var backCover = document.getElementById("backcover");
+
+          backCover.parentNode.insertBefore(newDiv, backCover);
+        }
+      });
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

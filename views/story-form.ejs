@@ -1,0 +1,149 @@
+<html lang="th">
+  <head>
+    <title>WARD NONGGLUAY</title>
+    <meta charset="UTF-8" />
+    <meta name="description" content="ward gluaymunchkin" />
+    <meta name="keywords" content="Gluay, Contest, Drawing" />
+    <meta name="author" content="Gluay" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kanit&family=Noto+Sans+Thai:wght@300&family=Prompt:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+
+  <body>
+    <div class="page-form">
+      <div class="flex-row">
+        <a href="./storygluay-questions">
+          <button id="qa">Q&A</button>
+        </a>
+      </div>
+      <form action="/storygluay-submitstory" method="POST" id="submitStory">
+        <div class="img-title">
+            <img src="./assets/ward.png" />
+            <img class="mt-2 mb-2" src="./assets/gluay_logo.png" alt="gluay" />
+        </div>
+
+      <div class="text" id="textElem">
+        <div class="word mt-3">
+          <h4>คำที่กำหนด</h4>
+          <p class="toggle-word">
+            <span>กล้วย</span>
+            <span>ขนมปัง</span>
+            <span>สามสิบ</span>
+            <span>เดินทาง</span>
+            <span>กะป้อกล้อก</span>
+            <span>ซูชิ</span>
+            <span>แมวน้ำ</span>
+            <span>สับปะรด</span>
+            <span>หวี</span>
+            <span>รัก</span>
+          </p>
+        </div>
+        <p id="choose-word" class="mt-2">
+          ** เลือก 5 คำใดก็ได้จากคำเหล่านี้มาเขียนเรื่องราว **
+        </p>
+      </div>
+      <div class="textarea-container">
+        <textarea
+          id="storyTextarea"
+          name="story"
+          class="disabled"
+          placeholder="เขียนเรื่อง"
+        ></textarea>
+        <button id="editButton" class="edit-button" type="button">✎</button>
+      </div>
+     
+        <div id="after-next">
+            <input class="input-form mt-3" placeholder="ชื่อเรื่อง" name="title" required>
+            <input class="input-form mt-2" placeholder="นามปากกา" name="author" required>
+            <input class="input-form mt-2" placeholder="ชื่อไอจี (เพื่อติดต่อกลับ)" name="instagram" required>
+            <p class="mt-4">เรื่องราวของพี่ๆจะถูกนำไปรวบรวมในไดอารี่ของนักเขียนกล้วย<br/>โดยเปิดเผยเพียงนามปากกา ซึ่งชื่อไอจีจะไม่ถูกเปิดเผย</p>
+            <button id="submit" type="submit" class="mt-0">ส่งเรื่อง</button>
+        </div>
+        <button id="next" type="button" class="mt-4" disabled>ต่อไป</button>
+    </div>
+</form>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const textarea = document.querySelector('textarea[name="story"]');
+      const submitButton = document.querySelector("#next");
+      const editButton = document.querySelector("#editButton");
+      const toggleWords = document.querySelectorAll(".toggle-word span");
+      const form = document.getElementById("submitStory");
+
+      function countUniqueThaiWords(text) {
+        const thaiWordPattern = /[ก-๙]+/g;
+        const matches = text.match(thaiWordPattern);
+        let count = 0;
+
+        if (matches) {
+          for (const match of matches) {
+            count += 1;
+          }
+        }
+        return count;
+      }
+
+      function containsToggleWords(text) {
+        let count = 0;
+        for (const span of toggleWords) {
+          const toggleWord = span.textContent;
+          if (text.includes(toggleWord)) {
+            span.style.color = "green";
+            count++;
+          } else {
+            span.style.color = "";
+          }
+        }
+        return count;
+      }
+
+      textarea.addEventListener("input", function () {
+        const text = textarea.value.trim();
+        let ThaiWordCount = containsToggleWords(text);
+
+        if (ThaiWordCount >= 5) {
+          submitButton.disabled = false;
+          submitButton.style.backgroundColor = "#226699";
+        } else {
+          submitButton.disabled = true;
+          submitButton.style.backgroundColor = "gray";
+        }
+      });
+
+      editButton.addEventListener("click", function () {
+        const textElement = document.getElementById("textElem");
+        textElement.style.display = "block";
+        submitButton.style.display = "inline-block";
+        document.getElementById("after-next").style.display = "none";
+        editButton.style.display = "none";
+        textarea.disabled = false;
+      });
+
+      submitButton.addEventListener("click", function () {
+        const textElement = document.getElementById("textElem");
+        textElement.style.display = "none";
+        submitButton.style.display = "none";
+        document.getElementById("after-next").style.display = "block";
+        editButton.style.display = "inline-block";
+        textarea.disabled = true;
+      });
+      form.addEventListener("submit", function () {
+          textarea.disabled = false;
+        });
+    });
+  </script>
+  </body>
+</html>
