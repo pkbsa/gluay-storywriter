@@ -39,7 +39,9 @@ app.use(fileUpload());
 const publicDirectory = path.join(__dirname + "/css");
 app.use(express.static(publicDirectory));
 
-app.set("view engine", "ejs");
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs'); // Replace 'ejs' with your chosen rendering engine
+
 
 app.get("/storygluay", function (request, response) {
   response.render("story-start");
